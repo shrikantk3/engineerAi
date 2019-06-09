@@ -1,0 +1,34 @@
+<div class="container">
+<div class="card">
+  <div class="card-header">
+    My List 
+  </div>
+  <div class="card-body">
+    <kendo-grid
+    [data]="gridData"
+    [pageSize]="state.take"
+    [skip]="state.skip"
+    [sort]="state.sort"
+    [filter]="state.filter"
+    [sortable]="true"
+    [pageable]="true"
+    [filterable]="true"
+    (dataStateChange)="dataStateChange($event)"
+>
+<kendo-grid-column field="points" title="ID" width="40" [filterable]="false">
+</kendo-grid-column>
+<kendo-grid-column field="title" title="Title">
+</kendo-grid-column>
+<kendo-grid-column field="created_at" title="Cresate On" width="240" filter="date" format="{0:d}">
+</kendo-grid-column>
+<kendo-grid-column field="points" title="Point" width="180" filter="numeric" format="{0:c}">
+</kendo-grid-column>
+<kendo-grid-column field="Discontinued" width="120" filter="boolean">
+    <ng-template kendoGridCellTemplate let-dataItem>
+        <input type="checkbox" [checked]="dataItem.Discontinued" disabled/>
+    </ng-template>
+</kendo-grid-column>
+</kendo-grid> 
+  </div>
+</div>
+</div>
