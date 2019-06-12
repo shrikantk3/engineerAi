@@ -14,21 +14,42 @@
     [pageable]="true"
     [filterable]="true"
     (dataStateChange)="dataStateChange($event)"
+    (cellClick)='onGridSelectionChange($event)'
 >
-<kendo-grid-column field="points" title="ID" width="40" [filterable]="false">
-</kendo-grid-column>
+<!-- <kendo-grid-column field="objectID" title="ID" width="140" [filterable]="false">
+</kendo-grid-column> -->
 <kendo-grid-column field="title" title="Title">
 </kendo-grid-column>
-<kendo-grid-column field="created_at" title="Cresate On" width="240" filter="date" format="{0:d}">
+<kendo-grid-column field="url" title="Url" width="240">
 </kendo-grid-column>
-<kendo-grid-column field="points" title="Point" width="180" filter="numeric" format="{0:c}">
+<kendo-grid-column field="created_at" title="Cresate On" width="180" filter="date" format="{0:d}">
 </kendo-grid-column>
-<kendo-grid-column field="Discontinued" width="120" filter="boolean">
+<kendo-grid-column field="points" title="Point" width="180" filter="numeric">
+</kendo-grid-column>
+<kendo-grid-column field="author" title="Author">
+</kendo-grid-column>
+<!-- <kendo-grid-column field="Discontinued" width="120" filter="boolean">
     <ng-template kendoGridCellTemplate let-dataItem>
         <input type="checkbox" [checked]="dataItem.Discontinued" disabled/>
     </ng-template>
-</kendo-grid-column>
+</kendo-grid-column> -->
 </kendo-grid> 
   </div>
 </div>
 </div>
+
+<kendo-dialog title="Detail" *ngIf="opened" (close)="close('cancel')" [minWidth]="250" [width]="450">
+      <div class="row">
+        <div class="col-sm-6"><label><b>Author :</b> {{popupData.author}}</label></div>
+        <div class="col-sm-6"><label><b>Author ID :</b> {{popupData.objectID}}</label></div>
+        <div class="col-sm-12"><label><b>Title :</b> {{popupData.title}}</label></div>
+        <div class="col-sm-12"><label><b>URL :</b> <a href="{{popupData.url}}"> {{popupData.url}}</a></label></div>
+        <div class="col-sm-6"><label><b>Created date :</b> {{popupData.created_at | date}}</label></div>
+        <div class="col-sm-6"><label><b>Score :</b> {{popupData.relevancy_score}}</label></div>
+        <div class="col-sm-6"><label><b>Points :</b> {{popupData.points}}</label></div>
+      </div>
+  <kendo-dialog-actions>
+      <button kendoButton (click)="close('no')">No</button>
+      <button kendoButton (click)="close('yes')" primary="true">Yes</button>
+  </kendo-dialog-actions>
+</kendo-dialog>

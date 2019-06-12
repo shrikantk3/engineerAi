@@ -23,6 +23,7 @@
     "@angular/router": "~7.2.0",
     "@progress/kendo-angular-buttons": "^4.0.0",
     "@progress/kendo-angular-dateinputs": "2 - 3",
+    "@progress/kendo-angular-dialog": "^3.12.1",
     "@progress/kendo-angular-dropdowns": "2 - 3",
     "@progress/kendo-angular-excel-export": "1 - 2",
     "@progress/kendo-angular-inputs": "2 - 5",

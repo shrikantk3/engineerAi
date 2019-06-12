@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 // import { GridModule } from '@progress/kendo-angular-grid';
 import {MatButtonModule} from '@angular/material/button';
+import { DialogModule } from '@progress/kendo-angular-dialog';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { ServicesService } from './services.service'
 import { GridModule } from '@progress/kendo-angular-grid';
 import { HttpClientModule } from '@angular/common/http'
@@ -24,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http'
     GridModule,
     // MatButtonModule,
     // MatCheckboxModule
+    DialogModule
   ], 
   providers: [ServicesService],
   bootstrap: [AppComponent]
